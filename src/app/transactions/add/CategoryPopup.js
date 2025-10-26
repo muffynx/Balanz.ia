@@ -2,6 +2,7 @@
 // CategoryPopup.js
 
 import { useState } from "react";
+export const dynamic = 'force-dynamic';
 
 export default function CategoryPopup({
   categories = [], // ⬅️ แก้ไขที่สำคัญที่สุด: กำหนดค่าเริ่มต้นเป็น Array ว่าง เพื่อป้องกัน TypeError
