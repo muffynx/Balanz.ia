@@ -4,7 +4,7 @@
 import { useState } from "react";
 
 export default function CategoryPopup({
-  categories = [], // FIXED: Provide a default empty array for server-side rendering
+  categories = [], // ⬅️ แก้ไขที่สำคัญที่สุด: กำหนดค่าเริ่มต้นเป็น Array ว่าง เพื่อป้องกัน TypeError
   formData,
   selectCategory,
   deleteCategory,
@@ -14,11 +14,11 @@ export default function CategoryPopup({
   const [isManaging, setIsManaging] = useState(false);
 
   // Filter categories to only show the ones matching the current type (income/expense)
+  // บรรทัดนี้จะไม่ crash อีกต่อไป เพราะ categories ถูกรับประกันว่าเป็น Array
   const filteredCategories = categories.filter(
     (cat) => cat.type === formData.type
   );
   
-  // You should also ensure 'categories' is safe here, although the fix above covers this.
   const selectedCategory = categories.find(
     (cat) => cat._id === formData.category
   );
