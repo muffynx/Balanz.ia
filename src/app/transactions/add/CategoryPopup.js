@@ -15,9 +15,9 @@ export default function CategoryPopup({
 
   // Filter categories to only show the ones matching the current type (income/expense)
   // บรรทัดนี้จะไม่ crash อีกต่อไป เพราะ categories ถูกรับประกันว่าเป็น Array
-  const filteredCategories = categories.filter(
-    (cat) => cat.type === formData.type
-  );
+const filteredCategories = (categories || []).filter(
+  (cat) => cat.type === formData?.type
+);
   
   const selectedCategory = categories.find(
     (cat) => cat._id === formData.category
