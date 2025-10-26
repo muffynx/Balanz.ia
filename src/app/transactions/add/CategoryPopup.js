@@ -4,7 +4,7 @@
 import { useState } from "react";
 
 export default function CategoryPopup({
-  categories,
+  categories = [], // FIXED: Provide a default empty array for server-side rendering
   formData,
   selectCategory,
   deleteCategory,
@@ -17,6 +17,8 @@ export default function CategoryPopup({
   const filteredCategories = categories.filter(
     (cat) => cat.type === formData.type
   );
+  
+  // You should also ensure 'categories' is safe here, although the fix above covers this.
   const selectedCategory = categories.find(
     (cat) => cat._id === formData.category
   );
