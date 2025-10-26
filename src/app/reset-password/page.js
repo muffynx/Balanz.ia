@@ -1,3 +1,5 @@
+"use client"; // เพิ่ม directive นี้ด้านบนสุด
+
 import { Suspense } from "react";
 import { useState, useMemo } from "react";
 import Link from "next/link";
