@@ -1,9 +1,17 @@
-"use client";
+import { Suspense } from "react";
 import { useState, useMemo } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
 export default function ResetPassword() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center text-white">Loading...</div>}>
+      <ResetPasswordContent />
+    </Suspense>
+  );
+}
+
+function ResetPasswordContent() {
   const searchParams = useSearchParams();
   const token = useMemo(() => searchParams.get("token") || "", [searchParams]);
 
@@ -40,7 +48,12 @@ export default function ResetPassword() {
         body: JSON.stringify({ token, newPassword }),
       });
       const raw = await res.text();
-      let data; try { data = JSON.parse(raw); } catch { data = { message: raw }; }
+      let data;
+      try {
+        data = JSON.parse(raw);
+      } catch {
+        data = { message: raw };
+      }
       if (!res.ok) throw new Error(data?.message || `ตั้งรหัสผ่านใหม่ไม่สำเร็จ (${res.status})`);
       setSuccess("ตั้งรหัสผ่านใหม่สำเร็จ คุณสามารถเข้าสู่ระบบได้แล้ว");
       setTimeout(() => (window.location.href = "/login"), 1200);
