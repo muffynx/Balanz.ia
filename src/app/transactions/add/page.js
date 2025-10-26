@@ -79,7 +79,7 @@ export default function AddTransaction() {
 
   const fetchCategories = async (token) => {
     try {
-      const res = await fetch('http://localhost:5000/api/categories', {
+      const res = await fetch('https://balanz-ia.onrender.com/api/categories', {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
@@ -113,7 +113,7 @@ export default function AddTransaction() {
       if (!isDuplicate) {
         try {
           const token = localStorage.getItem('token');
-          const res = await fetch('http://localhost:5000/api/categories', {
+          const res = await fetch('https://balanz-ia.onrender.com/api/categories', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -145,7 +145,7 @@ export default function AddTransaction() {
   const deleteCategory = async (categoryId) => {
     const token = localStorage.getItem('token');
     try {
-      const budgetRes = await fetch('http://localhost:5000/api/budgets', {
+      const budgetRes = await fetch('https://balanz-ia.onrender.com/api/budgets', {
         headers: { Authorization: `Bearer ${token}` },
       });
       const budgetData = await budgetRes.json();
@@ -167,7 +167,7 @@ export default function AddTransaction() {
             `คุณแน่ใจหรือไม่ว่าต้องการลบหมวดหมู่ "${categories.find(cat => cat._id === categoryId)?.name}"? การลบจะรวมถึงการลบข้อมูลประวัติหมวดหมู่ในรายการธุรกรรมด้วย`
           )
         ) {
-          const res = await fetch(`http://localhost:5000/api/categories/${categoryId}`, {
+          const res = await fetch(`https://balanz-ia.onrender.com/api/categories/${categoryId}`, {
             method: 'DELETE',
             headers: { Authorization: `Bearer ${token}` },
           });
@@ -286,7 +286,7 @@ export default function AddTransaction() {
 
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:5000/api/transactions', {
+      const res = await fetch('https://balanz-ia.onrender.com/api/transactions', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -47,7 +47,7 @@ export default function Budget() {
 
   const fetchCategories = async (token) => {
     try {
-      const res = await fetch('http://localhost:5000/api/categories', {
+      const res = await fetch('https://balanz-ia.onrender.com/api/categories', {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
@@ -64,7 +64,7 @@ export default function Budget() {
 
   const fetchBudgets = async (token) => {
     try {
-      const res = await fetch('http://localhost:5000/api/budgets', {
+      const res = await fetch('https://balanz-ia.onrender.com/api/budgets', {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
@@ -85,7 +85,7 @@ export default function Budget() {
 
   const fetchTransactions = async (token) => {
     try {
-      const res = await fetch('http://localhost:5000/api/transactions', {
+      const res = await fetch('https://balanz-ia.onrender.com/api/transactions', {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
@@ -114,7 +114,7 @@ export default function Budget() {
 
     const token = localStorage.getItem('token');
     try {
-      await fetch('http://localhost:5000/api/budgets', {
+      await fetch('https://balanz-ia.onrender.com/api/budgets', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
