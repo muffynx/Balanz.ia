@@ -260,7 +260,7 @@ export default function CategoryPopup({
                   <p className="text-gray-400 text-xs">
                     โปรดคลิก{" "}
                     <span className="font-semibold text-blue-600">
-                      &quot;เพิ่มใหม่&quot;
+                      'เพิ่มใหม่'
                     </span>{" "}
                     เพื่อสร้างหมวดหมู่ใหม่
                   </p>
